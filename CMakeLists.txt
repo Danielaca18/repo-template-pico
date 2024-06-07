@@ -16,9 +16,9 @@ set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
 # Board type
 set(PICO_BOARD pico_w CACHE STRING "Board type")
 
-# Toolchain and module path vars for windows
+# Toolchain and module path vars
+set(CMAKE_TOOLCHAIN_FILE ${PICO_SDK_PATH}/cmake/preload/toolchains/pico_arm_gcc.cmake)
 if(WIN32)
-    set(CMAKE_TOOLCHAIN_FILE ${PICO_SDK_PATH}/cmake/preload/toolchains/pico_arm_gcc.cmake)
     set(CMAKE_MODULE_PATH ${PICO_INSTALL_PATH}/)
 endif()
 
