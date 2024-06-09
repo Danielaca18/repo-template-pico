@@ -4,12 +4,10 @@ cmake_minimum_required(VERSION 3.14)
 set(PROJECT_NAME "Template")
 set(TARGET_NAME "Template")
 
-# Add directories
-add_subdirectory(src)
-add_subdirectory(inc)
-add_subdirectory(cmake)
+# Include project configs
+include(${CMAKE_SOURCE_DIR}/cmake/import_config.cmake)
 
-# include pico sdk and extras
+# Include pico sdk and extras
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 include(${PICO_EXTRAS_PATH}/external/pico_extras_import.cmake)
 
@@ -19,9 +17,17 @@ project(${PROJECT_NAME} VERSION 1.0 LANGUAGES C CXX ASM)
 # init pico sdk
 pico_sdk_init()
 
+# Add directories
+add_subdirectory(src)
+add_subdirectory(inc)
+
 # Setup executable
 add_executable(${TARGET_NAME} ${SRC} ${INC})
 target_link_libraries(${TARGET_NAME} pico_stdlib pico_unique_id)
+
+# Add include directories
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
 # Link stdio to usb serial
 pico_enable_stdio_usb(${TARGET_NAME} 1)
