@@ -10,11 +10,11 @@ This project is a template for creating new repositories. It includes a template
 ## 🛠️ Setup
 
 ### 1. Clone the Repository
+```bash
+git clone https://github.com/Danielaca18/repo-template.git
+cd repo-template
+```
 
-    ```bash
-    git clone https://github.com/Danielaca18/repo-template.git
-    cd repo-template
-    ```
 ### 2. Install Prerequisites
 - Program Name: Small Program Description 
 
