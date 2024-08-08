@@ -21,6 +21,7 @@ pico_sdk_init()
 # Add directories
 add_subdirectory(src)
 add_subdirectory(inc)
+add_subdirectory(lib)
 
 if (NOT TARGET ${LIBRARY_NAME} AND NOT TARGET ${TARGET_NAME})
     # Setup library
